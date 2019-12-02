@@ -1,0 +1,270 @@
+<html>
+
+<head>
+  <title>HR</title>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.1.1/Chart.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script> 
+      $(document).ready(function () {
+        var ctx = $("#mycanvas").get(0).getContext("2d");
+
+        var data = [
+          {
+            value: 30,
+            color: "blue",
+            highlight: "red",
+            label: "obese"
+          },
+          {
+            value: 90,
+            color: "yellow",
+            highlight: "black",
+            label: "fat"
+          },
+          {
+            value: 240,
+            color: "violet",
+            highlight: "green",
+            label: "fit"
+          }
+        ];
+        var piechart = new Chart(ctx).Pie(data);
+      });
+     </script>
+     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+     <script type="text/javascript">
+       google.charts.load('current', {'packages':['corechart']});
+       google.charts.setOnLoadCallback(drawChart);
+     
+       function drawChart() {
+         var data = google.visualization.arrayToDataTable([
+           ['Year', 'Sales', 'Expenses'],
+           ['2004',  1000,      400],
+           ['2005',  1170,      460],
+           ['2006',  660,       1120],
+           ['2007',  1030,      540]
+         ]);
+     
+         var options = {
+           title: 'Company Performance',
+           curveType: 'function',
+           legend: { position: 'bottom' }
+         };
+     
+         var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+     
+         chart.draw(data, options);
+       }
+     </script>
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script type='text/javascript'>
+        google.charts.load('current', {'packages':['annotationchart']});
+        google.charts.setOnLoadCallback(drawChart);
+  
+        function drawChart() {
+          var data = new google.visualization.DataTable();
+          data.addColumn('date', 'Date');
+          data.addColumn('number', 'Kepler-22b mission');
+          data.addColumn('string', 'Kepler title');
+          data.addColumn('string', 'Kepler text');
+          data.addColumn('number', 'Gliese 163 mission');
+          data.addColumn('string', 'Gliese title');
+          data.addColumn('string', 'Gliese text');
+          data.addRows([
+            [new Date(2314, 2, 15), 12400, undefined, undefined,
+                                    10645, undefined, undefined],
+            [new Date(2314, 2, 16), 24045, 'Lalibertines', 'First encounter',
+                                    12374, undefined, undefined],
+            [new Date(2314, 2, 17), 35022, 'Lalibertines', 'They are very tall',
+                                    15766, 'Gallantors', 'First Encounter'],
+            [new Date(2314, 2, 18), 12284, 'Lalibertines', 'Attack on our crew!',
+                                    34334, 'Gallantors', 'Statement of shared principles'],
+            [new Date(2314, 2, 19), 8476, 'Lalibertines', 'Heavy casualties',
+                                    66467, 'Gallantors', 'Mysteries revealed'],
+            [new Date(2314, 2, 20), 0, 'Lalibertines', 'All crew lost',
+                                    79463, 'Gallantors', 'Omniscience achieved']
+          ]);
+  
+          var chart = new google.visualization.AnnotationChart(document.getElementById('chart_div'));
+  
+          var options = {
+            displayAnnotations: true
+          };
+  
+          chart.draw(data, options);
+        }
+      </script>
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script type="text/javascript">
+        google.charts.load('current', {
+          'packages':['geochart'],
+         
+          'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+        });
+        google.charts.setOnLoadCallback(drawRegionsMap);
+  
+        function drawRegionsMap() {
+          var data = google.visualization.arrayToDataTable([
+            ['Country', 'Popularity'],
+            ['Germany', 200],
+            ['United States', 300],
+            ['Brazil', 400],
+            ['Canada', 500],
+            ['France', 600],
+            ['RU', 700],
+            ['India', 70]
+          ]);
+  
+          var options = {};
+  
+          var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+  
+          chart.draw(data, options);
+        }
+      </script>
+
+
+</head>
+
+<body>
+  <header>
+
+    <header class="header">
+      <nav class="navbar navbar-style">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#micon">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href=""><img class="logo" src="white eagle.png"></a>
+          </div>
+          <div class="collapse navbar-collapse" id="micon">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="">HOME</a></li>
+              <li><a href="">ABOUT US</a></li>
+              <li><a href="">PRODUCTS</a></li>
+              <li><a href="">CONTACT</a></li>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="tabContainer">
+        <div class="buttonContainer">
+          <button onclick="showPanel(0, 'F44336')">Questions</button>
+          <button onclick="showPanel(1, 'F44336')">Responses</button>
+          <button onclick="showPanel(2, 'F44336')">Dashboard</button>
+          <button onclick="showPanel(3, 'F44336')">tab4</button>
+          <button onclick="showPanel(4, 'F44336')">tab5</button>
+
+        </div>
+        <div class="tabPanel">
+          <!------- <input type="text" id="txt"> --->
+          <input type="text" id="txt" class="form-control" aria-label="Default"
+            aria-describedby="inputGroup-sizing-default">
+          <button class="btn addbtn" onclick="addLI()">Add</button>
+          <button class="btn" onclick="editLI()">Edit</button>
+          <button class="btn" onclick="deleteLI()">Delete</button>
+
+          <ul class="float-left" id="list">
+            <li>hello</li>
+          </ul>
+
+          
+
+        </div>
+        <div class="tabPanel">tab2 content</div>
+        <!------------------------------------------------ dashboard ---------------------------------------------->
+        <div class="tabPanel">
+            
+            
+            
+            <div class="card1">
+                
+                <div class="card-body">
+                  <canvas id="mycanvas" width="140" height="140"></canvas>
+                  <h3 class="card-title">Pie Graph</h3>
+                  
+                </div>
+            
+        </div>
+            <div class="card2">
+                
+              <div class="card-body">
+                <div id='chart_div' class="ann" style='width: 457px; height: 243px;'></div>
+
+              </div>
+          </div>
+          <div class="card3">
+                
+            <div class="card-body">
+              <h5 class="card-title">Pie Graph</h5>
+              
+              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+              
+            </div>
+        </div>
+        <div class="card4">
+                
+          <div class="card-body">
+            <h5 class="card-title">Pie Graph</h5>
+            
+           
+            
+          </div>
+      </div>
+      <div class="card5">
+                
+        <div class="card-body">
+          <h5 class="card-title">Pie Graph</h5>
+          
+          
+        </div>
+    </div>
+    <div class="card6">
+                
+      <div class="card-body">
+        
+        <div id="curve_chart" style="width: 480px; height: 242px"></div> 
+        
+        
+      </div>
+  </div>
+  <div class="card7">
+                
+    <div class="card-body">
+      <!-- <h5 class="card-title">Pie Graph</h5> -->
+      <div id="regions_div" style="width: 480px; height: 24 0px;"></div>
+      
+     
+      
+    </div>
+</div>
+        </div>
+        <div class="tabPanel">tab4 content</div>
+        <div class="tabPanel">tab5 content</div>
+      </div>
+
+    </header>
+    <script src="myscript.js"></script>
+    
+    <!--<footer class="page-footer font-small blue">
+
+
+        <div class="footer-copyright text-center py-3">Copyright © 2019 :
+          <a href="https://flyerssoft.com/"> Flyerssoft.com</a>
+        </div>
+      
+      
+      </footer> -->
+</body>
+
+</html>
